@@ -8,6 +8,16 @@ Kill specific processes with fuzzy finder.
 $ fk
 ```
 
+Keybindings
+
+| key    | description     |
+|--------|-----------------|
+| CTRL-i | select/unselect |
+| CTRL-j | go to next      |
+| CTRL-k | go to prev      |
+| CTRL-c | abort           |
+| Enter  | kill            |
+
 ## Instalttion
 ```sh
 $ go get github.com/skanehira/fk/cmd/fk
