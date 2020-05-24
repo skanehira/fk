@@ -15,13 +15,13 @@ var (
 
 var version = "1.0.0"
 
-type Process struct {
+type process struct {
 	Pid int
 	Cmd string
 }
 
-func processes() ([]Process, error) {
-	var processes []Process
+func processes() ([]process, error) {
+	var processes []process
 	procs, err := ps.Processes()
 	if err != nil {
 		return nil, err
@@ -32,7 +32,7 @@ func processes() ([]Process, error) {
 		if p.Pid() == 0 {
 			continue
 		}
-		processes = append(processes, Process{
+		processes = append(processes, process{
 			Pid: p.Pid(),
 			Cmd: p.Executable(),
 		})
