@@ -1,12 +1,19 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"os"
 
 	"github.com/ktr0731/go-fuzzyfinder"
 	"github.com/mitchellh/go-ps"
 )
+
+var (
+	showVersion = flag.Bool("v", false, "show version")
+)
+
+var version = "1.0.0"
 
 type Process struct {
 	Pid int
@@ -44,6 +51,12 @@ func kill(pid int) error {
 }
 
 func main() {
+	flag.Parse()
+	if *showVersion {
+		fmt.Println("fk - " + version)
+		return
+	}
+
 	procs, err := processes()
 	if err != nil {
 		fmt.Fprintln(os.Stderr, err)
